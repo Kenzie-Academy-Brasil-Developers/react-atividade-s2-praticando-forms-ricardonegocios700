@@ -1,0 +1,36 @@
+:root {
+  --background-button: #4169e1;
+  --background-input: #282c34;
+  --border-input: #778899;
+  --color-font: #ffffff;
+}
+.cadUser form div {
+  max-width: 400px;
+}
+.cadUser form div input {
+  background-color: var(--background-input);
+  padding: 15px;
+  margin: 5px;
+  width: 100%;
+  border: 0.5px solid var(--border-input);
+  color: var(--color-font);
+  font-size: large;
+}
+.doble {
+  display: flex;
+}
+.cadUser form div button {
+  background-color: var(--background-button);
+  width: 100%;
+  height: 40px;
+  border-radius: 6px;
+  color: var(--color-font);
+  font-size: x-large;
+}
+#aceito {
+  margin: 8px 0;
+  background-color: var(--background-button);
+}
+.cadUser form div span {
+  margin: 0;
+}
