@@ -3,6 +3,7 @@
   --background-input: #282c34;
   --border-input: #778899;
   --color-font: #ffffff;
+  --msg-error: #ff0000;
 }
 .cadUser form div {
   max-width: 400px;
@@ -21,11 +22,14 @@
 }
 .cadUser form div button {
   background-color: var(--background-button);
-  width: 100%;
-  height: 40px;
+  padding: 15px;
+  margin: 30px 5px;
+  width: 435px;
+  height: 70px;
   border-radius: 6px;
   color: var(--color-font);
   font-size: x-large;
+  cursor: pointer;
 }
 #aceito {
   margin: 8px 0;
@@ -33,4 +37,12 @@
 }
 .cadUser form div span {
   margin: 0;
+}
+.erros {
+  color: var(--msg-error);
+  margin: 0;
+  font-size: small;
+  text-align: left;
+  padding: 5px;
+  margin-bottom: 3px;
 }

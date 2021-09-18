@@ -2,35 +2,41 @@ import "./cadUser.css";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useHistory } from "react-router-dom";
 
-const CadUser = () => {
+const CadUser = ({ setDateForm }) => {
+  const history = useHistory();
+
   // variável com as validações e erros
   const schema = yup.object().shape({
-    userName: yup
+    userName: yup.string().required("Escolha seu usuário!"),
+    fullName: yup
       .string()
-      .required("O nome de usuário obrigatório!")
-      .max(18, "O cumprimento máximo é de 18 caracteres!"),
+      .required("Esqueceu de preencher seu nome!")
+      .max(18, "O tamanho máximo é de 18 caracteres!"),
     email: yup
       .string()
-      .required("O email é exigido!")
-      .email("Verifique o formato de email!"),
+      .required("Precisamos saber seu email!")
+      .email("Confira o preenchimento do email!"),
     emailConfirmation: yup
       .string()
-      .required("A confirmação do email é exigida!")
+      .required("Esqueceu de confirmar seu email!")
       .oneOf([yup.ref("email")], "os Emails devem ser iguais!"),
     password: yup
       .string()
-      .required("A senha é exigida!")
-      .min(3, "Cumprimento mínimo de 3 caracteres!"),
+      .required("Escolha uma senha segura!")
+      .min(3, "O tamanho mínimo é de 3 caracteres!"),
     passwordConfirmation: yup
       .string()
-      .required("A confirmação da senha é exigida!")
-      .oneOf([yup.ref("password")], "as senhas devem ser iguais!")
-      .min(3, "Cumprimento mínimo de 3 caracteres!"),
+      .required("Esqueceu de confirmar sua senha!")
+      .oneOf([yup.ref("password")], "está diferente!")
+      .min(3, "O tamanho mínimo é de 3 caracteres!"),
     accepted: yup
-      .string()
+      .boolean()
+      //não consegui usar os .bool(), .string()
       .required("Aceite os termos de uso para se cadastrar!"),
   });
+
   // register e handleSubmit administram as variáveis do yup
   // errors vem yupResolver e administra validações e mensagens de erro
   const {
@@ -41,8 +47,11 @@ const CadUser = () => {
     resolver: yupResolver(schema),
   });
   const onSubmitFunction = (date) => {
-    console.log("ao submeter form", date, date.userName);
+    console.log("ao submeter form", date);
+    setDateForm(date);
+    history.push("/card");
   };
+
   return (
     <div className="cadUser">
       <h1> Cadastro de Usuário </h1>
