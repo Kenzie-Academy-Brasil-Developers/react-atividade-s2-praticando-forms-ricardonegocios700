@@ -1,0 +1,20 @@
+.card {
+  background-color: #363636;
+  padding: 30px;
+}
+.card img {
+  width: 180px;
+  height: 180px;
+}
+.card #layPhoto {
+  display: flex;
+  text-align: left;
+}
+
+.card #layPhoto div {
+  margin-left: 30px;
+}
+
+.card a {
+  color: #ffffff;
+}

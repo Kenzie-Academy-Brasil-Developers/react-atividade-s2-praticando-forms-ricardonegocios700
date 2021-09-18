@@ -9,7 +9,10 @@ const CadUser = ({ setDateForm }) => {
 
   // variável com as validações e erros
   const schema = yup.object().shape({
-    userName: yup.string().required("Escolha seu usuário!"),
+    userName: yup
+      .string()
+      .min(5, "O tamanho mínimo é de 5 caracteres")
+      .required("Escolha seu usuário!"),
     fullName: yup
       .string()
       .required("Esqueceu de preencher seu nome!")
@@ -47,7 +50,6 @@ const CadUser = ({ setDateForm }) => {
     resolver: yupResolver(schema),
   });
   const onSubmitFunction = (date) => {
-    console.log("ao submeter form", date);
     setDateForm(date);
     history.push("/card");
   };
@@ -101,7 +103,7 @@ const CadUser = ({ setDateForm }) => {
           </div>
         </div>
         <input type="checkbox" id="aceito" {...register("accepted")} />
-        <span>Eu aceito os termos de uso da aplicação</span>
+        <span> - Aceito os termos de uso da aplicação</span>
         {errors.accepted?.message && (
           <p className="erros">{errors.accepted.message}</p>
         )}

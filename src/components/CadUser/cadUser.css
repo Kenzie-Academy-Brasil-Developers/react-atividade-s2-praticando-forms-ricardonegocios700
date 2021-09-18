@@ -3,7 +3,7 @@
   --background-input: #282c34;
   --border-input: #778899;
   --color-font: #ffffff;
-  --msg-error: #ff0000;
+  --msg-error: #ffffff;
 }
 .cadUser form div {
   max-width: 400px;
@@ -43,6 +43,7 @@
   margin: 0;
   font-size: small;
   text-align: left;
-  padding: 5px;
+  padding: 0 0 5px 10px;
   margin-bottom: 3px;
+  font-weight: 600;
 }
